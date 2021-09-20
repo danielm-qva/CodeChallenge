@@ -13,10 +13,6 @@ export const createStudents = async (req, res) => {
 	}
 }
 
-export const getAllStudentsParams = async (req, res) => {
-	console.log(req.params.page);
-}
-
 export const getAllStudents = async (req, res) => {
 	if (req.query.page) {
 		try {
@@ -58,7 +54,6 @@ export const getAllStudents = async (req, res) => {
 }
 
 export const getStudentsById = async (req, res) => {
-	console.log(req.params.studentsId)
 	await Students.findById(req.params.studentsId).then(m => {
 		res.status(200).json(m);
 	}).catch(error => {
